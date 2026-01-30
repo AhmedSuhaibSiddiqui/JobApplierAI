@@ -1,113 +1,99 @@
-# JobApplierAI Agent
+# JobApplierAI Agent 
 
 **An Intelligent, Ethical, and Automated Job Application Assistant.**
 
-JobApplierAI is a "Human-in-the-Loop" tool designed to streamline the job application process. It leverages Generative AI to analyze job descriptions and tailor resumes, combined with browser automation to handle the repetitive task of form filling.
+JobApplierAI Agent is a full-stack automation tool designed to streamline the modern job hunt. It leverages **Google's Gemini 2.5 Flash** to analyze job descriptions and scientifically tailor resumes, combined with a **Playwright** browser agent to autonomously navigate and submit applications.
 
 ---
 
-## 🚀 Overview
+## 🛠️ Installation & Setup (Step-by-Step)
 
-Job hunting is often a volume game where quality suffers. Candidates spend hours tweaking resumes for ATS (Applicant Tracking Systems) and manually entering data into repetitive forms.
-
-**JobApplierAI solves this by:**
-1.  **Analyzing** job descriptions to extract key skill requirements.
-2.  **Tailoring** your base resume to specifically target those requirements using Google's Gemini AI.
-3.  **Automating** the submission process on supported platforms (Greenhouse, Lever) via a secure browser agent.
-
-**Core Philosophy:** *Automation with Oversight.* This tool is not a "spam bot." It is a productivity multiplier that requires your review for every application, ensuring ethical usage and high-quality submissions.
-
----
-
-## ✨ Key Features
-
-*   **🤖 AI Analyst (The Brain):** Instantly parses job descriptions to identify hard skills, soft skills, and cultural fit keywords.
-*   **✍️ Smart Tailor (The Writer):** Rewrites your professional summary and re-prioritizes skills in your resume to match the specific job description.
-*   **🛡️ Ethical Guardrails:** Automatically flags potential job scams (e.g., "pay-to-work" schemes) before you apply.
-*   **⚡ Auto-Applier (The Hands):** A Playwright-based browser agent that navigates to job boards, fills out your profile (Name, Email, Phone), and uploads your tailored resume.
-*   **💎 Modern UI:** A beautiful, glassmorphism-styled dashboard with a live "hacker terminal" to monitor the agent's actions in real-time.
-
----
-
-## 🛠️ Architecture
-
-The project is built as a local full-stack application to ensure data privacy.
-
-*   **Frontend:** React (Vite) + TypeScript + Tailwind CSS
-*   **Backend:** Python (FastAPI)
-*   **AI Engine:** Google Gemini (via `google-generativeai`)
-*   **Automation:** Playwright (Python)
-
----
-
-## ⚙️ Installation & Setup
-
-### Prerequisites
-*   **Node.js** (v18+)
-*   **Python** (v3.10+)
-*   **Google Gemini API Key** (Get one [here](https://aistudio.google.com/app/apikey))
+Follow these steps in order to get the application running on your local machine.
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/JobApplierAi.git
+git clone https://github.com/AhmedSuhaibSiddiqui/JobApplierAI.git
 cd JobApplierAi
 ```
 
-### 2. Backend Setup (The Brain)
+### 2. Configure the Backend (The Brain)
+Open a terminal and navigate to the backend directory:
 ```bash
 cd backend
-
-# Create virtual environment (optional but recommended)
-python -m venv venv
-# Windows:
-.\venv\Scripts\Activate
-# Mac/Linux:
-# source venv/bin/activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Install Playwright browsers
-playwright install chromium
-
-# Configure Environment
-# Rename .env.example to .env and add your API Key
-# GEMINI_API_KEY=your_actual_key_here
 ```
-*Note: Ensure you create a `.env` file in the `backend/` folder and paste your actual API key inside.*
 
-### 3. Frontend Setup (The Dashboard)
-Open a new terminal window:
+**Create and Activate Virtual Environment:**
+*   **Windows:**
+    ```powershell
+    python -m venv venv
+    .\venv\Scripts\Activate
+    ```
+*   **Mac/Linux:**
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+
+**Install Dependencies:**
 ```bash
-cd frontend
+pip install -r requirements.txt
+playwright install chromium
+```
 
-# Install dependencies
+**Set up API Key:**
+Create a file named `.env` in the `backend/` folder and add your Gemini key:
+```bash
+GEMINI_API_KEY=your_actual_key_here
+```
+
+**Start the Backend:**
+```bash
+python main.py
+```
+
+---
+
+### 3. Configure the Frontend (The Dashboard)
+Open a **NEW** terminal window and navigate to the frontend directory:
+```bash
+cd JobApplierAi/frontend
+```
+
+**Install & Run:**
+```bash
 npm install
-
-# Start the development server
 npm run dev
 ```
 
 ---
 
-## 📖 How to Use
+## 📖 How to Use (The Working)
 
-1.  **Start the Servers:** Ensure both backend (`python main.py`) and frontend (`npm run dev`) are running.
-2.  **Access Dashboard:** Open your browser to `http://localhost:5173`.
-3.  **Configure Profile:** Enter your basic details (Name, Email, Phone) in the "Your Profile" section.
-4.  **Target a Job:**
-    *   Paste the **Job Description** into the text area.
-    *   Paste the **Job URL** (Greenhouse or Lever links work best).
-5.  **Generate:** Click **"Generate Resume"**. The AI will rewrite your resume text to match the job.
-6.  **Apply:** Once satisfied with the tailored text, click **"Auto-Apply Now"**.
-    *   A browser window will open.
-    *   Watch as the agent navigates to the URL, fills the form, and uploads your resume.
+Once both servers are running, follow this workflow to apply for a job:
+
+1.  **Access the App:** Open [http://localhost:5173](http://localhost:5173) in your browser.
+2.  **Setup Profile:** Enter your First Name, Last Name, Email, and Phone in the **Your Profile** card.
+3.  **Paste Base Resume:** Paste your standard, non-tailored resume into the **Base Resume Text** area.
+4.  **Target a Job:** 
+    *   Find a job on **Greenhouse.io** or **Lever.co**.
+    *   Paste the **Job URL** and the **Job Description** into the **Job Target** card.
+5.  **Analyze & Generate:** Click **"Analyze & Generate Resume"**. 
+    *   *The AI will calculate your fit score and rewrite your resume text.*
+6.  **Review:** Look at the **Career Coach** report on the right to see missing skills and advice.
+7.  **Auto-Apply:** Click the green **"Auto-Apply Now"** button.
+    *   *A browser window will pop up.*
+    *   *The agent will fill the form, upload the tailored PDF, and wait for your final review/submission.*
 
 ---
 
-## ⚠️ Disclaimer & Ethics
+## ✨ Features
+*   **Gemini 2.5 Flash:** High-speed, accurate resume tailoring.
+*   **Cyber-Glass UI:** Modern dark-mode dashboard with live logs.
+*   **PDF Engine:** Automatically generates a professional PDF for every application.
+*   **Scam Detection:** Warns you if a job posting appears fraudulent.
 
-This tool is designed for personal productivity, **not** for spamming.
-*   **Rate Limits:** Please respect the rate limits of job boards. Applying to hundreds of jobs per minute is unethical and will get your IP banned.
-*   **Review:** Always review the AI-generated resume before applying. AI can occasionally hallucinate facts.
-*   **Terms of Service:** Ensure your use of automation complies with the Terms of Service of the platforms you are accessing.
+---
+
+## 📂 Project Structure
+*   `/backend`: FastAPI, AI logic, Playwright automation, and PDF rendering.
+*   `/frontend`: React, TypeScript, Tailwind CSS, and Framer-like animations.

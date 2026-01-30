@@ -1,73 +1,40 @@
-# React + TypeScript + Vite
+# JobApplierAI Agent - Frontend 💻
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The frontend is a modern, responsive dashboard built to control the AI Agent. It features a "Cyber-Glass" aesthetic and provides real-time feedback on the agent's operations.
 
-Currently, two official plugins are available:
+## 🛠️ Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+*   **Framework:** React (Vite) + TypeScript
+*   **Styling:** Tailwind CSS + Custom CSS Modules (Glassmorphism)
+*   **Icons:** Lucide React
+*   **Markdown:** `react-markdown` for rich resume previews
 
-## React Compiler
+## 🎨 UI Features
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+*   **Cyber-Glass Theme:** Dark mode aesthetic with deep gradients and frosted glass panels.
+*   **Live Terminal:** A scrolling log window that displays real-time status updates from the backend agent.
+*   **Interactive Forms:** Real-time validation (Regex) for emails and phone numbers.
+*   **Career Coach Panel:** Visualizes "Fit Score" and displays learning recommendations dynamically.
 
-## Expanding the ESLint configuration
+## 📂 Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Component | Purpose |
+|-----------|---------|
+| `App.tsx` | Main application logic and state management. |
+| `components/Background.tsx` | Renders the animated "Northern Lights" background layers. |
+| `components/Terminal.tsx` | The "Hacker Style" log output window. |
+| `components/ResumePreview.tsx` | Renders the Markdown resume and handles PDF downloads. |
+| `custom.css` | Contains the core Glassmorphism variables and animations. |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Running the Dashboard
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1.  **Install Dependencies:**
+    ```bash
+    npm install
+    ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2.  **Start Dev Server:**
+    ```bash
+    npm run dev
+    ```
+    Open `http://localhost:5173` in your browser.
