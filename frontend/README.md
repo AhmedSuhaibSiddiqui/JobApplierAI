@@ -1,40 +1,43 @@
-# JobApplierAI Agent - Frontend 💻
+# JobApplierAI Agent - Frontend
 
-The frontend is a modern, responsive dashboard built to control the AI Agent. It features a "Cyber-Glass" aesthetic and provides real-time feedback on the agent's operations.
+The frontend is the "Command Center" of the application. It is built with **React (Vite)** and **TypeScript**, styled with **Tailwind CSS**, and uses a custom **Glassmorphism** design system.
 
-## 🛠️ Tech Stack
+## 📂 Project Structure & Files
 
-*   **Framework:** React (Vite) + TypeScript
-*   **Styling:** Tailwind CSS + Custom CSS Modules (Glassmorphism)
-*   **Icons:** Lucide React
-*   **Markdown:** `react-markdown` for rich resume previews
+| Path / File | Type | Description |
+| :--- | :---: | :--- |
+| **`src/App.tsx`** | **Core Logic** | The main controller. Manages state (user inputs), handles API calls to the backend, and enforces validation rules (Regex). |
+| **`src/main.tsx`** | Entry Point | Mounts the React application to the DOM. |
+| **`src/custom.css`** | Styling | Defines the core "Cyber-Glass" theme variables, animations, and glassmorphism classes. |
+| **`vite.config.ts`** | Config | Configuration for the Vite build tool. |
 
-## 🎨 UI Features
+### 🧩 Components (`src/components/`)
 
-*   **Cyber-Glass Theme:** Dark mode aesthetic with deep gradients and frosted glass panels.
-*   **Live Terminal:** A scrolling log window that displays real-time status updates from the backend agent.
-*   **Interactive Forms:** Real-time validation (Regex) for emails and phone numbers.
-*   **Career Coach Panel:** Visualizes "Fit Score" and displays learning recommendations dynamically.
+| Component File | Visual Role | Key Functionality |
+| :--- | :--- | :--- |
+| **`Background.tsx`** | 🌌 Backdrop | Renders the animated, deep-space gradient and glowing orbs behind the app. |
+| **`CoachReport.tsx`** | 📊 Analysis | Visualizes the "Fit Score" (ProgressBar), lists missing skills, and suggests learning paths. |
+| **`JobInput.tsx`** | 📝 Form | Captures the Job URL and Job Description text. |
+| **`Navbar.tsx`** | 🧭 Navigation | Displays the "JobApplierAI" branding and "Safe Mode" status badge. |
+| **`ProfileInput.tsx`** | 👤 Form | Captures User Name, Email, Phone, and Base Resume. Handles real-time validation. |
+| **`ResumePreview.tsx`** | 📄 Output | Renders the tailored resume in Markdown. Handles **PDF Download** and Copy-to-Clipboard. |
+| **`Terminal.tsx`** | 🖥️ Console | A scrolling log window that displays real-time status updates from the AI Agent. |
 
-## 📂 Project Structure
+## 🎨 Design System
 
-| Component | Purpose |
-|-----------|---------|
-| `App.tsx` | Main application logic and state management. |
-| `components/Background.tsx` | Renders the animated "Northern Lights" background layers. |
-| `components/Terminal.tsx` | The "Hacker Style" log output window. |
-| `components/ResumePreview.tsx` | Renders the Markdown resume and handles PDF downloads. |
-| `custom.css` | Contains the core Glassmorphism variables and animations. |
+The app uses a hybrid styling approach:
 
-## 🚀 Running the Dashboard
+| Class Name | Defined In | Purpose |
+| :--- | :--- | :--- |
+| `.glass-panel` | `custom.css` | Creates the semi-transparent, blurred card effect. |
+| `.glass-input` | `custom.css` | Styles input fields with a dark, transparent background. |
+| `.aura-container` | `custom.css` | Handles the ambient background animation layers. |
+| `.prose-resume` | `custom.css` | Styles the Markdown resume content (headers, bullets). |
 
-1.  **Install Dependencies:**
-    ```bash
-    npm install
-    ```
+## 🚀 Commands
 
-2.  **Start Dev Server:**
-    ```bash
-    npm run dev
-    ```
-    Open `http://localhost:5173` in your browser.
+| Command | Action |
+| :--- | :--- |
+| `npm install` | Installs dependencies. |
+| `npm run dev` | Starts the local dev server (`localhost:5173`). |
+| `npm run build` | Builds for production. |
