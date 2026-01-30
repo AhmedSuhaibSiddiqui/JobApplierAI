@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+python-dotenv
+google-generativeai
+playwright
+beautifulsoup4
+pydantic
+python-multipart
+requests
+markdown
+xhtml2pdf
